@@ -23,10 +23,9 @@ class SystemInitial:  # set up chung port vao day
             self.ser.write(b' ')
 
             while True:
-                Rx_data = self.ser.read_all().decode()
-
+                Rx_data = self.ser.read_all()
                 for text in Rx_data:
-                    print('char: {}'.format(text))
+                    print('char: {}, hex: {}, dec: {}'.format(chr(text), hex(text), text))
                     time.sleep(0.5)
 
         else:
@@ -60,6 +59,7 @@ while True:
         data = input('input data to send: \n')
         if data == '':
             print('program end')
+            time.sleep(0.1)
             break
 
         else:
@@ -68,4 +68,5 @@ while True:
 
     else:
         print('program end')
+        time.sleep(0.1)
         break
